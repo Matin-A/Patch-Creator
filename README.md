@@ -11,7 +11,7 @@ That means exact same files will be ignored.
 At last a Batch (`delete_Removed_Files.bat`) file will be created to delete `Files Exist in old directory, but not in new`.
 
 # Features
-No changes will be made in old and new directories by program.
+No changes will be made in old or new directories by program.
 
 All files are copied from new directory to `save to` directory.
 
