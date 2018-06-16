@@ -1,5 +1,5 @@
 # Patch Creator
-A tiny Java application. It Extracts a patch based on two directory file differences.
+A tiny Java application. It creats a patch based on two directory file differences.
 
 # How it works
 Based on two directory (old, new) some files (located in new directory) would copy to save to location:
