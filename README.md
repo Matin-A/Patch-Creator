@@ -17,7 +17,7 @@ All files are copied from new directory to `save to` directory.
 
 The Batch file will be saved in `save to` location.
 
-Currently files are compared based to the sizes.
+Currently files are compared based on the sizes.
 
 # How to's
 
