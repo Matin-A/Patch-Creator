@@ -4,7 +4,7 @@ A tiny Java application. It creates a patch based on two directory file differen
 # How it works
 Based on two directory (old, new) some files (located in new directory) would copy to `save to` location:
 * `Files exist in new directory, but not in old`.
-* `Files exist in both directory (Same Name, Diffrent Data)`.
+* `Files exist in both directory (Same Name, Different Data)`.
 
 That means exact same files will be ignored.
 
@@ -30,8 +30,8 @@ Other versions not tested so not recommended.
 Simply copy and run `Patch Crator.jar` File. You need JRE pre-installed.
 
 ## How to use Batch file
-Copy batch file to the directory that patch is going to installed. Run it and specified files (Line 11) will be deleted. After run you can delete the batch file.
-This file is runnable in Windows. for the other OSs there are some ways.
+Copy batch file to the directory that patch is going to be installed. Run it and specified files (Line 11) will be deleted. After run you can delete the batch file.
+This file is runnable in Windows. For the other OSs there are some ways.
 
 # Screenshot
 ![screenshot](https://github.com/Matin-A/Patch-Creator/blob/master/Assests/PatchCreatorScreenshot.jpg)
