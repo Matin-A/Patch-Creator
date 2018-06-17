@@ -24,7 +24,7 @@ Currently files are compared based on the sizes.
 Other versions not tested so not recommended.
 * I tried to write a cross-platform application so there should be no problem on java supported OSs. But I only tested in Windows 10 1803.
 
-# How tos
+# How-to
 
 ## How to run the program
 Simply copy and run `Patch Crator.jar` File. You need JRE pre-installed.
