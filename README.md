@@ -1,5 +1,5 @@
 # Patch Creator
-A tiny Java application. It creats a patch based on two directory file differences.
+A tiny Java application. It creates a patch based on two directory file differences.
 
 # How it works
 Based on two directory (old, new) some files (located in new directory) would copy to `save to` location:
@@ -19,19 +19,19 @@ The Batch file will be saved in `save to` location.
 
 Currently files are compared based on the sizes.
 
-# Requirments
+# Requirements
 * [Java Runtime Environment Version 10.0.1](http://www.oracle.com/technetwork/java/javase/downloads/jre10-downloads-4417026.html) is needed to run JAR file or manual run.
 Other versions not tested so not recommended.
-* I tried to write a cross-platform application so there should be no problem on java supported os's. But i only tested in Windows 10 1803.
+* I tried to write a cross-platform application so there should be no problem on java supported OSs. But I only tested in Windows 10 1803.
 
-# How to's
+# How tos
 
 ## How to run the program
-Simply copy and run `Patch Crator.jar` File. You need JRE pre installed.
+Simply copy and run `Patch Crator.jar` File. You need JRE pre-installed.
 
 ## How to use Batch file
 Copy batch file to the directory that patch is going to installed. Run it and specified files (Line 11) will be deleted. After run you can delete the batch file.
-This file is runable in Windows. for the other os there are some ways.
+This file is runnable in Windows. for the other OSs there are some ways.
 
 # Screenshot
 ![screenshot](https://github.com/Matin-A/Patch-Creator/blob/master/Assests/PatchCreatorScreenshot.jpg)
