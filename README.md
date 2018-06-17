@@ -21,6 +21,9 @@ Currently files are compared based on the sizes.
 
 # How to's
 
+## How to run the program
+Simply copy and run `Patch Crator.jar` File. You need JRE 10.0.1 pre installed.
+
 ## How to use Batch file
 Copy batch file to the directory that patch is going to installed. Run it and specified files (Line 11) will be deleted. After run you can delete the batch file.
 This file is runable in Windows. for the other os there are some ways.
