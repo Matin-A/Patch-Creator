@@ -19,6 +19,11 @@ The Batch file will be saved in `save to` location.
 
 Currently files are compared based on the sizes.
 
+# Requirments
+* [Java Runtime Environment Version 10.0.1](http://www.oracle.com/technetwork/java/javase/downloads/jre10-downloads-4417026.html) is needed to run JAR file or run it manually.
+Other versions not tested so not recommended.
+* I tried to write a cross-platform application so there should be no problem on java supported os's. But i only tested in Windows 10 1803.
+
 # How to's
 
 ## How to run the program
