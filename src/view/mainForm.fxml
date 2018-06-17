@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="500.0" maxWidth="630.0" minHeight="350.0" minWidth="520.0" prefHeight="350.0" prefWidth="520.0" style="-fx-border-color: #afafaf;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+    <GridPane maxHeight="500.0" maxWidth="630.0" minHeight="350.0" minWidth="520.0" prefHeight="350.0" prefWidth="520.0" snapToPixel="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="520.0" minWidth="520.0" prefWidth="520.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="110.0" minHeight="110.0" prefHeight="110.0" vgrow="SOMETIMES" />
+         <RowConstraints maxHeight="62.5" minHeight="62.5" prefHeight="62.5" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="62.5" minHeight="62.5" prefHeight="62.5" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="115.0" minHeight="115.0" prefHeight="115.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+      <TextField fx:id="oldPathT" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" promptText="Can not be empty" GridPane.rowIndex="1" GridPane.valignment="TOP">
+         <GridPane.margin>
+            <Insets left="35.0" right="120.0" />
+         </GridPane.margin>
+      </TextField>
+      <TextField fx:id="newPathT" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" promptText="Can not be empty" GridPane.rowIndex="2" GridPane.valignment="TOP">
+         <GridPane.margin>
+            <Insets left="35.0" right="120.0" />
+         </GridPane.margin>
+      </TextField>
+        <TextField fx:id="saveToT" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" promptText="Can not be empty" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="TOP">
+            <GridPane.margin>
+                <Insets left="35.0" right="120.0" />
+            </GridPane.margin>
+        </TextField>
+        <Button fx:id="start" defaultButton="true" maxHeight="36.0" maxWidth="117.0" minHeight="36.0" minWidth="117.0" mnemonicParsing="false" onMouseClicked="#startClicked" prefHeight="36.0" prefWidth="117.0" text="Start" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+            <GridPane.margin>
+                <Insets bottom="20.0" left="35.0" />
+            </GridPane.margin>
+        </Button>
+        <Label fx:id="textMessage" alignment="CENTER_RIGHT" maxWidth="213.0" wrapText="true" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+            <GridPane.margin>
+                <Insets bottom="20.0" right="35.0" />
+            </GridPane.margin>
+            <font>
+                <Font size="11.0" />
+            </font>
+        </Label>
+        <Button fx:id="exit" alignment="CENTER" maxHeight="23.0" maxWidth="23.0" minHeight="23.0" minWidth="23.0" mnemonicParsing="false" onMouseClicked="#exitClicked" onMouseEntered="#exitHovered" onMouseExited="#exitUnHovered" onMousePressed="#exitPressed" onMouseReleased="#exitReleased" prefHeight="23.0" prefWidth="23.0" style="-fx-background-color: linear-gradient(#e8c7c7,#e5a7a7); -fx-background-insets: 4; -fx-background-radius: 30; -fx-text-fill: White;" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+            <GridPane.margin>
+                <Insets right="7.0" top="5.0" />
+            </GridPane.margin>
+        </Button>
+        <Button fx:id="minimize" alignment="CENTER" maxHeight="23.0" maxWidth="23.0" minHeight="23.0" minWidth="23.0" mnemonicParsing="false" onMouseClicked="#minimClicked" onMouseEntered="#minimHovered" onMouseExited="#minimUnHovered" onMousePressed="#minimPressed" onMouseReleased="#minimReleased" prefHeight="23.0" prefWidth="23.0" style="-fx-background-color: linear-gradient(#c9edcf, #a7e5b2); -fx-background-insets: 4; -fx-background-radius: 30; -fx-text-fill: White;" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+            <GridPane.margin>
+                <Insets right="29.0" top="5.0" />
+            </GridPane.margin>
+        </Button>
+        <Button fx:id="info" alignment="CENTER" layoutX="559.0" layoutY="10.0" maxHeight="23.0" maxWidth="23.0" minHeight="23.0" minWidth="23.0" mnemonicParsing="false" onMouseClicked="#infoOpen" onMouseEntered="#infoHovered" onMouseExited="#infoUnHovered" onMousePressed="#infoPressed" onMouseReleased="#infoReleased" prefHeight="23.0" prefWidth="23.0" style="-fx-background-color: linear-gradient(#d1e2ff, #adcbff); -fx-background-insets: 4; -fx-background-radius: 30; -fx-text-fill: White;" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+            <GridPane.margin>
+                <Insets left="7.0" top="5.0" />
+            </GridPane.margin>
+        </Button>
+        <Label text="Save To" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
+            <GridPane.margin>
+                <Insets top="-25.0" />
+            </GridPane.margin>
+        </Label>
+        <Button maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onMouseClicked="#saveToFileChooserClicked" opacity="0.78" prefHeight="25.0" prefWidth="25.0" text="..." GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="TOP">
+            <GridPane.margin>
+                <Insets right="90.0" />
+            </GridPane.margin>
+        </Button>
+        <Button maxHeight="25.0" maxWidth="50.0" minHeight="25.0" minWidth="50.0" mnemonicParsing="false" onMouseClicked="#saveToOpenClicked" prefHeight="25.0" prefWidth="50.0" text="Open" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="TOP">
+            <GridPane.margin>
+                <Insets right="35.0" />
+            </GridPane.margin>
+        </Button>
+      <Label layoutX="257.0" layoutY="224.0" text="New Path" GridPane.rowIndex="2" GridPane.valignment="TOP">
+         <GridPane.margin>
+            <Insets top="-25.0" />
+         </GridPane.margin>
+      </Label>
+      <Label layoutX="257.0" layoutY="43.0" text="Old Path" GridPane.rowIndex="1" GridPane.valignment="TOP">
+         <GridPane.margin>
+            <Insets top="-25.0" />
+         </GridPane.margin>
+      </Label>
+      <Label text="Patch Creator" textFill="#878787" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+         <font>
+            <Font size="22.0" />
+         </font>
+         <GridPane.margin>
+            <Insets bottom="14.0" />
+         </GridPane.margin>
+      </Label>
+      <Button layoutX="413.0" layoutY="248.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onMouseClicked="#newFileChooserClicked" opacity="0.78" prefHeight="25.0" prefWidth="25.0" text="..." GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+         <GridPane.margin>
+            <Insets right="90.0" />
+         </GridPane.margin>
+      </Button>
+      <Button layoutX="443.0" layoutY="248.0" maxHeight="25.0" maxWidth="50.0" minHeight="25.0" minWidth="50.0" mnemonicParsing="false" onMouseClicked="#newOpenClicked" prefHeight="25.0" prefWidth="50.0" text="Open" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+         <GridPane.margin>
+            <Insets right="35.0" />
+         </GridPane.margin>
+      </Button>
+      <Button layoutX="256.0" layoutY="203.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onMouseClicked="#oldFileChooserClicked" opacity="0.78" prefHeight="25.0" prefWidth="25.0" text="..." GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+         <GridPane.margin>
+            <Insets right="90.0" />
+         </GridPane.margin>
+      </Button>
+      <Button layoutX="244.0" layoutY="203.0" maxHeight="25.0" maxWidth="50.0" minHeight="25.0" minWidth="50.0" mnemonicParsing="false" onMouseClicked="#oldOpenClicked" prefHeight="25.0" prefWidth="50.0" text="Open" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+         <GridPane.margin>
+            <Insets right="35.0" />
+         </GridPane.margin>
+      </Button>
+    </GridPane>
+</AnchorPane>
