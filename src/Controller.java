@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.util.Objects;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import static javafx.scene.paint.Color.BLACK;
 import static javafx.scene.paint.Color.GREEN;
@@ -38,6 +39,7 @@ public class Controller {
     private static String oldPath;
     private static String newPath;
     private static String saveTo;
+    private static ScheduledExecutorService patchService;
 
     @FXML Button cancel;
     @FXML Button start;
@@ -85,7 +87,8 @@ public class Controller {
             textMessage.setText(message);
 
         }else {
-            Executors.newSingleThreadScheduledExecutor().schedule(this::createPatch,0,TimeUnit.MILLISECONDS);
+            patchService = Executors.newSingleThreadScheduledExecutor();
+            patchService.schedule(this::createPatch,0,TimeUnit.MILLISECONDS);
         }
     }
 
@@ -118,7 +121,9 @@ public class Controller {
         start.setDisable(false);
         startIsDisable = false;
         inTask = false;
+        patchService.shutdown();
     }
+
 
     public void oldFileChooserClicked() {
         DirectoryChooser chooser = new DirectoryChooser();
@@ -161,17 +166,20 @@ public class Controller {
     }
 
     private void openClicked(TextField saveToT) {
-        if (!new File(saveToT.getText()).exists()) {
-            textMessage.setTextFill(RED);
-            messageColor = RED;
-            message = "Path not exists.";
-            textMessage.setText(message);
-        }else {
-            try {
-                Desktop.getDesktop().open(new File(saveToT.getText()));
-            } catch (IOException ignored) {}
+        if (saveToT.getText()!=null){
+            if (!new File(saveToT.getText()).exists()) {
+                textMessage.setTextFill(RED);
+                messageColor = RED;
+                message = "Path not exists.";
+                textMessage.setText(message);
+            }else {
+                try {
+                    Desktop.getDesktop().open(new File(saveToT.getText()));
+                } catch (IOException ignored) {}
+            }
         }
     }
+
 
     public void telegramClicked() {
         try {
@@ -179,19 +187,18 @@ public class Controller {
         } catch (IOException ignored) {}
     }
 
-
     public void googlePlusClicked() {
         try {
             Desktop.getDesktop().browse(URI.create("http://google.com/+MatinAfkhami"));
         } catch (IOException ignored) {}
     }
 
-
     public void githubClicked() {
         try {
             Desktop.getDesktop().browse(URI.create("https://github.com/Matin-A"));
         } catch (IOException ignored) {}
     }
+
 
     public void infoOpen() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/view/infoForm.fxml"));
@@ -218,6 +225,7 @@ public class Controller {
         });
         Main.primaryStage.setScene(new Scene(root,520 ,350));
     }
+
 
     public void minimClicked() {
         Stage stage = (Stage) minimize.getScene().getWindow();
@@ -254,6 +262,7 @@ public class Controller {
     public void confirmExitClicked() {
         Platform.exit();
     }
+
 
     public void infoHovered() {
         info.setStyle("-fx-background-color:  linear-gradient(#77aaff, #478cff);" +
