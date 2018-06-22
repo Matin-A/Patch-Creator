@@ -17,7 +17,7 @@
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="520.0" minWidth="520.0" prefWidth="520.0" />
         </columnConstraints>
         <rowConstraints>
-            <RowConstraints maxHeight="110.0" minHeight="110.0" prefHeight="110.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" valignment="CENTER" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="130.0" minHeight="130.0" prefHeight="130.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="110.0" minHeight="110.0" prefHeight="110.0" vgrow="SOMETIMES" />
         </rowConstraints>
@@ -50,7 +50,7 @@
                 <Font size="22.0" />
             </font>
             <GridPane.margin>
-                <Insets bottom="14.0" />
+                <Insets />
             </GridPane.margin>
         </Label>
         <Label text="Developed By Matin Afkhami" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
@@ -79,9 +79,9 @@
             </GridPane.margin>
             <Image url="@../resources/github.png" />
         </ImageView>
-        <Label text="v1.0.1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+        <Label text="v1.1.0" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
             <GridPane.margin>
-                <Insets bottom="-10.0" />
+                <Insets />
             </GridPane.margin>
             <font>
                 <Font size="16.0" />
