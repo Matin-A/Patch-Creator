@@ -34,4 +34,4 @@ Copy batch file to the directory that patch is going to be installed. Run it and
 This file is runnable in Windows. For the other OSs there are some ways.
 
 # Screenshot
-![screenshot](https://github.com/Matin-A/Patch-Creator/blob/v1.0.1-releases-archived/Assests/PatchCreatorScreenshot.jpg)
+![screenshot](https://github.com/Matin-A/Patch-Creator/blob/v1.0.0-releases-archived/PatchCreatorScreenshot.jpg)
