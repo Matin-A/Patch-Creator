@@ -17,7 +17,7 @@ All files are copied from new directory to `save to` directory.
 
 The Batch file will be saved in `save to` location.
 
-Currently files are compared based on the sizes.
+`New!` Files are compared based on Hash Codes and file sizes. If you select `Ignore Hash Code`, files will be compared only based on sizes. I suggest you not select the `Ignore Hash Code` unless you know the risks.
 
 # Requirements
 * [Java Runtime Environment Version 10.0.1](http://www.oracle.com/technetwork/java/javase/downloads/jre10-downloads-4417026.html) is needed to run JAR file or manual run.
