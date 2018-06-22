@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
@@ -14,7 +15,6 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
-import java.util.Objects;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -36,6 +36,7 @@ public class Controller {
     private static Color messageColor;
     private static boolean inTask = false;
     private static boolean startIsDisable;
+    private static boolean ignoreChecksumIsSelected = false;
     private static String oldPath;
     private static String newPath;
     private static String saveTo;
@@ -50,33 +51,27 @@ public class Controller {
     @FXML TextField oldPathT;
     @FXML TextField newPathT;
     @FXML TextField saveToT;
+    @FXML CheckBox ignoreChecksum;
 
     public void initialize(){
-        if (oldPathT!=null){
+        if (oldPathT!=null) {
             oldPathT.setText(oldPath);
-        }
-        if (newPathT!=null){
             newPathT.setText(newPath);
-        }
-        if (saveToT!=null){
             saveToT.setText(saveTo);
-        }
-        if (start!=null){
             start.setDisable(startIsDisable);
-        }
-        if (textMessage!=null){
             textMessage.setText(message);
             textMessage.setTextFill(messageColor);
+            ignoreChecksum.setSelected(ignoreChecksumIsSelected);
         }
     }
 
     public void startClicked() {
-        if (Objects.equals(oldPathT.getText(), "")
-                || Objects.equals(newPathT.getText(), "")
-                || Objects.equals(saveToT.getText(), "")){
+        if (oldPathT.getText()==null
+                || newPathT.getText()==null
+                || saveToT.getText()==null){
             textMessage.setTextFill(RED);
             messageColor = RED;
-            message = "Keyword or Path couldn't be empty.";
+            message = "You must fill all fields.";
             textMessage.setText(message);
         }else if (!new File(oldPathT.getText()).exists()
                 || !new File(newPathT.getText()).exists()
@@ -99,15 +94,16 @@ public class Controller {
         oldPath = oldPathT.getText();
         newPath = newPathT.getText();
         saveTo = saveToT.getText();
+        ignoreChecksumIsSelected = ignoreChecksum.isSelected();
         try {
-            patchCreator = new PatchCreator(new File(oldPath),new File(newPath),new File(saveTo));
+            patchCreator = new PatchCreator(new File(oldPath),new File(newPath),new File(saveTo),!ignoreChecksumIsSelected);
         } catch (Exception ignored) {}
         try {
             textMessage.setTextFill(BLACK);
             messageColor = BLACK;
             Platform.runLater(() -> textMessage.setText("Copying Files..."));
             message = "Copying Files...";
-            patchCreator.extractPatch();
+            patchCreator.createPatch();
             textMessage.setTextFill(GREEN);
             messageColor = GREEN;
             Platform.runLater(() -> textMessage.setText("Patch Successfully Created."));
