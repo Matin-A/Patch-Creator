@@ -1,4 +1,6 @@
 import java.io.*;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -10,11 +12,13 @@ import java.util.Objects;
 class PatchCreator {
 
     private File oldDirectory, newDirectory, saveTo;
+    private boolean hashCodeMethod;
     private ArrayList<String> deletedFilesList = new ArrayList<>();
 
-    PatchCreator(File oldDirectory, File newDirectory, File saveTo) throws Exception {
+    PatchCreator(File oldDirectory, File newDirectory, File saveTo, boolean hashCodeMethod) throws Exception {
         if (oldDirectory.exists() && newDirectory.exists() && saveTo.exists()){
             if (oldDirectory.isDirectory() && newDirectory.isDirectory() && saveTo.isDirectory()){
+                this.hashCodeMethod = hashCodeMethod;
                 this.oldDirectory = oldDirectory;
                 this.newDirectory = newDirectory;
                 this.saveTo = saveTo;
@@ -26,7 +30,7 @@ class PatchCreator {
         }
     }
 
-    void extractPatch() throws Exception {
+    void createPatch() throws Exception {
 
         copyNewFiles(newDirectory);
         findDeletedFiles(oldDirectory);
@@ -49,7 +53,7 @@ class PatchCreator {
             }else{
                 String pathToFile = eachFile.getParent().substring(newDirectory.getPath().length());
                 File oldFile = new File(oldDirectory.getPath()+pathToFile+"/"+eachFile.getName());
-                if (!(oldFile.exists() && eachFile.length()==oldFile.length())){
+                if (!(oldFile.exists() && fileEquals(eachFile,oldFile))){
                     File folders = new File(saveTo.getPath()+pathToFile);
                     folders.mkdirs();
                     copyFile(eachFile,new File(folders.getPath()+"/"+eachFile.getName()));
@@ -81,6 +85,38 @@ class PatchCreator {
                 os.write(buffer, 0, length);
             }
         }
+    }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    private boolean fileEquals(File file1, File file2) throws IOException {
+        if (file1.length()!=file2.length())
+            return false;
+        if (hashCodeMethod){
+            MessageDigest sha = null;
+            try {
+                sha = MessageDigest.getInstance("SHA-1");
+            } catch (NoSuchAlgorithmException ignored) {}
+            return getFileChecksum(sha, file1)
+                    .contentEquals(getFileChecksum(sha, file2));
+        }
+        return true;
+    }
+
+    private static String getFileChecksum(MessageDigest digest, File file) throws IOException {
+        FileInputStream fis = new FileInputStream(file);
+        byte[] byteArray = new byte[1024];
+        int bytesCount;
+        while ((bytesCount = fis.read(byteArray)) != -1) {
+            digest.update(byteArray, 0, bytesCount);
+        }
+        fis.close();
+        byte[] bytes = digest.digest();
+        StringBuilder hashStringBuilder = new StringBuilder();
+        for (byte aByte : bytes) {
+            hashStringBuilder.append(Integer.toString((aByte & 0xff) + 0x100, 16).substring(1));
+        }
+        return hashStringBuilder.toString();
     }
 
 }
