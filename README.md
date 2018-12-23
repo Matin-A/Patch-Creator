@@ -35,3 +35,6 @@ This file is runnable in Windows. For the other OSs there are some ways.
 
 # Screenshot
 ![screenshot](https://github.com/Matin-A/Patch-Creator/blob/v1.1.0-releases-archived/PatchCreatorScreenshot.jpg)
+
+# Notice
+Since Java-FX removed from new Java, you need to run command-line app (Console Version).
